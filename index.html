@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mano Brownie — Cardápio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f0e0e;
+      --panel:#161515;
+      --text:#f5f5f5;
+      --muted:#c9c9c9;
+      --accent:#2563eb;       /* azul principal */
+      --accent-2:#3b82f6;     /* azul claro */
+      --ok:#22c55e;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: radial-gradient(1200px 600px at 10% -10%, #1b1a1a 0%, transparent 70%),
+                  radial-gradient(900px 500px at 110% -10%, #1b1a1a 0%, transparent 70%),
+                  var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    .container{max-width:1050px; margin:0 auto; padding:24px}
+    header{display:flex; gap:20px; align-items:center; justify-content:space-between; padding:14px 0 24px}
+    .brand{display:flex; align-items:center; gap:14px}
+    .logo{width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg, var(--accent), var(--accent-2)); display:grid; place-items:center; box-shadow:var(--shadow)}
+    .logo span{font-weight:800; font-size:22px; color:#fff}
+    h1{font-size:28px; margin:0}
+    .tag{color:var(--muted); margin-top:4px; font-size:14px}
+
+    .cta{display:flex; gap:10px; flex-wrap:wrap}
+    .btn{appearance:none; border:none; padding:12px 16px; border-radius:12px; cursor:pointer; font-weight:600}
+    .btn.whats{background: #25d366; color:#062b17}
+    .btn.share{background: #262525; color:var(--text); border:1px solid #333}
+
+    .grid{display:grid; grid-template-columns:repeat(12, 1fr); gap:18px}
+    .card{grid-column: span 12; background:linear-gradient(180deg, #1a1818, var(--panel)); border:1px solid #262525; border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden}
+    .card .inner{padding:18px}
+
+    .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:18px; align-items:stretch}
+    .hero .photo{background:url('https://images.unsplash.com/photo-1621996346565-1187fce9c8ce?q=80&w=1200&auto=format&fit=crop') center/cover; min-height:220px}
+    .hero .copy{display:flex; flex-direction:column; justify-content:center}
+    .hero h2{margin:0 0 6px; font-size:24px}
+    .price-badges{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .badge{background:#221f1f; border:1px solid #343232; color:#f7eadf; padding:8px 12px; border-radius:999px; font-weight:600}
+
+    .menu{display:grid; grid-template-columns:repeat( auto-fit, minmax(240px, 1fr) ); gap:16px}
+    .item{background:#191717; border:1px solid #2a2828; border-radius:16px; padding:16px; display:flex; flex-direction:column; gap:10px}
+    .item h3{margin:0; font-size:18px}
+    .item p{margin:0; color:var(--muted); font-size:14px}
+    .tags{display:flex; gap:8px; flex-wrap:wrap}
+    .chip{font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid #383434; color:#f0e6dc; background:#1f1b1a}
+    .actions{display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:auto}
+    .price{font-weight:800; font-size:18px}
+    .actions .btn{padding:10px 12px}
+
+    .notice{font-size:13px; color:#d8c9bd}
+
+    footer{margin:28px 0 8px; color:var(--muted); font-size:13px; text-align:center}
+
+    @media (max-width: 840px){
+      .hero{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo"><span>MB</span></div>
+        <div>
+          <h1>Mano Brownie</h1>
+          <div class="tag">Caseiro • Fresquinho • Muito gostoso</div>
+        </div>
+      </div>
+      <div class="cta">
+        <a class="btn whats" href="https://wa.me/554788600960?text=Oi%20Luis!%20Quero%20fazer%20um%20pedido%20de%20brownies." target="_blank" rel="noopener">Pedir no WhatsApp</a>
+        <button class="btn share" id="shareBtn">Compartilhar</button>
+      </div>
+    </header>
+
+    <!-- Hero / destaque -->
+    <section class="card">
+      <div class="inner hero">
+        <div class="copy">
+          <h2>Clássico que derrete na boca</h2>
+          <p class="notice">Receita autoral com casquinha crocante e miolo cremoso. Perfeito pra lanche, pós-treino ou sobremesa.</p>
+          <div class="price-badges">
+            <span class="badge">Unidade: <strong>R$ 5,00</strong></span>
+            <span class="badge">Combo 3 un.: <strong>R$ 12,00</strong></span>
+            <span class="badge">Encomendas a partir de 12 un.</span>
+          </div>
+        </div>
+        <div class="photo" aria-label="Foto de brownies"></div>
+      </div>
+    </section>
+
+    <!-- Cardápio -->
+    <section class="grid" style="margin-top:18px">
+      <div class="card" style="grid-column: span 12"><div class="inner">
+        <h2 style="margin:0 0 8px">Sabores do dia</h2>
+        <p class="notice" style="margin:0 0 14px">Todos por R$ 5,00 a unidade. *Consulte disponibilidade no pedido.</p>
+        <div class="menu">
+          <div class="item">
+            <h3>Clássico</h3>
+            <p>Casquinha fina • Miolo cremoso</p>
+            <div class="tags">
+              <span class="chip">Sem cobertura</span>
+              <span class="chip">7cm x 6cm</span>
+            </div>
+            <div class="actions">
+              <span class="price">R$ 5,00</span>
+              <a class="btn whats" href="https://wa.me/554788600960?text=Quero%201%20brownie%20Cl%C3%A1ssico" target="_blank" rel="noopener">Pedir</a>
+            </div>
+          </div>
+
+          <div class="item">
+            <h3>Brigadeiro de Maracujá</h3>
+            <p>Cobertura de brigadeiro de maracujá • Equilíbrio doce e cítrico</p>
+            <div class="tags">
+              <span class="chip">Com cobertura</span>
+              <span class="chip">7cm x 6cm</span>
+            </div>
+            <div class="actions">
+              <span class="price">R$ 10,00</span>
+              <a class="btn whats" href="https://wa.me/554788600960?text=Quero%201%20brownie%20de%20Brigadeiro%20de%20Maracuja" target="_blank" rel="noopener">Pedir</a>
+            </div>
+          </div>
+
+          <div class="item">
+            <h3>Doce de Leite</h3>
+            <p>Recheio cremoso de doce de leite • Extra macio</p>
+            <div class="tags">
+              <span class="chip">Recheado</span>
+              <span class="chip">7cm x 6cm</span>
+            </div>
+            <div class="actions">
+              <span class="price">R$ 10,00</span>
+              <a class="btn whats" href="https://wa.me/554788600960?text=Quero%201%20brownie%20de%20Doce%20de%20Leite" target="_blank" rel="noopener">Pedir</a>
+            </div>
+          </div>
+
+          <div class="item">
+            <h3>Brigadeiro</h3>
+            <p>Cobertura de brigadeiro caseiro1</p>
+            <div class="tags">
+              <span class="chip">Com cobertura</span>
+              <span class="chip">7cm x 6cm</span>
+            </div>
+            <div class="actions">
+              <span class="price">R$ 8,00</span>
+              <a class="btn whats" href="https://wa.me/554788600960?text=Quero%201%20brownie%20de%20Brigadeiro" target="_blank" rel="noopener">Pedir</a>
+            </div>
+          </div>
+        </div>
+      </div></div>
+    </section>
+
+    <!-- Informações extras -->
+    <section class="grid" style="margin-top:6px">
+      <div class="card" style="grid-column: span 6"><div class="inner">
+        <h3 style="margin-top:0">Encomendas & Combos</h3>
+        <ul class="notice">
+          <li>Combo 3 un. por R$ 12,00</li>
+          <li>Caixa com 12 un. — consulte disponibilidade</li>
+          <li>Personalização de sabores para eventos</li>
+        </ul>
+      </div></div>
+
+      <div class="card" style="grid-column: span 6"><div class="inner">
+        <h3 style="margin-top:0">Contato & Entrega</h3>
+        <p class="notice">Atendo no bairro e em pontos combinados (onibûs da escola, praça, frente de casa). Falo no WhatsApp pra combinar horário.</p>
+        <a class="btn whats" href="https://wa.me/554788600960?text=Oi%20Luis!%20Quero%20fazer%20um%20pedido%20de%20brownies." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+      </div></div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Mano Brownie • Feito com por Luis Eduardo
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const shareBtn = document.getElementById('shareBtn');
+    shareBtn?.addEventListener('click', async () => {
+      const shareData = {
+        title: 'Cardápio — Mano Brownie',
+        text: 'Dá uma olhada no cardápio e me chama no Whats! 🍫',
+        url: location.href
+      };
+      if (navigator.share) {
+        try { await navigator.share(shareData); } catch(e) { }
+      } else {
+        await navigator.clipboard.writeText(location.href);
+        shareBtn.textContent = 'Link copiado!';
+        setTimeout(()=>shareBtn.textContent='Compartilhar', 1400);
+      }
+    });
+  </script>
+</body>
+</html>
