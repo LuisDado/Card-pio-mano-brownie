@@ -1,0 +1,63 @@
+:root {
+--choco:#5a3a2b;
+--radius:14px;
+--shadow:0 8px 30px rgba(2,6,23,0.6);
+--glass: rgba(255,255,255,0.03);
+}
+
+
+* { box-sizing: border-box; }
+html, body { height:100%; }
+body { margin:0; font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background:linear-gradient(180deg,var(--bg),#071025); color:var(--text); -webkit-font-smoothing:antialiased; }
+.wrap { max-width:980px; margin:18px auto; padding:16px; }
+
+
+/* Header */
+header { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.brand { display:flex; gap:12px; align-items:center; }
+.logo { width:64px; height:64px; border-radius:12px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); display:grid; place-items:center; box-shadow:var(--shadow); }
+.logo strong { color:#021230; }
+h1 { font-size:20px; margin:0; }
+.subtitle { color:var(--muted); font-size:13px; margin-top:2px; }
+.ctas { display:flex; gap:10px; align-items:center; }
+.btn { padding:10px 14px; border-radius:10px; border:0; cursor:pointer; font-weight:700; }
+.btn.whats { background:#25D366; color:#04230b; }
+.btn.secondary { background:transparent; color:var(--text); border:1px solid rgba(255,255,255,0.06); }
+
+
+/* Hero e cards */
+.hero { display:grid; grid-template-columns:1fr; gap:14px; margin-top:14px; }
+.card { background:var(--card); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow); border:1px solid rgba(255,255,255,0.03); }
+.hero-grid { display:grid; grid-template-columns:1fr; gap:12px; }
+.hero h2 { margin:0; font-size:18px; }
+.lead { color:var(--muted); font-size:13px; }
+.badges { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+.badge { background:var(--glass); padding:6px 10px; border-radius:999px; color:var(--muted); font-weight:700; font-size:13px; }
+
+
+/* Menu */
+.menu { display:grid; grid-template-columns:1fr; gap:12px; margin-top:14px; }
+.item { display:flex; gap:12px; align-items:stretch; padding:12px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03); }
+.thumb { width:110px; height:80px; background-size:cover; background-position:center; border-radius:10px; flex-shrink:0; }
+.info { flex:1; display:flex; flex-direction:column; gap:6px; }
+.info h3 { margin:0; font-size:16px; }
+.desc { color:var(--muted); font-size:13px; margin:0; }
+.meta { display:flex; gap:8px; align-items:center; margin-top:auto; }
+.price { font-weight:800; font-size:16px; color:var(--accent-2); }
+.order { background:var(--accent); color:white; padding:8px 10px; border-radius:8px; text-decoration:none; font-weight:700; }
+
+
+/* Footer */
+footer { margin:18px 0; color:var(--muted); font-size:13px; text-align:center; }
+
+
+/* Floating WhatsApp */
+.wh-floating { position:fixed; right:18px; bottom:18px; z-index:999; display:grid; }
+.wh-floating a { display:inline-grid; place-items:center; width:56px; height:56px; border-radius:999px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:white; box-shadow:0 10px 30px rgba(36,99,240,0.25); text-decoration:none; }
+
+
+/* Responsive */
+@media(min-width:700px) {
+.hero-grid { grid-template-columns:1fr 360px; }
+.menu { grid-template-columns:repeat(2, 1fr); }
+}
