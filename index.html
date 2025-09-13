@@ -2,230 +2,219 @@
 <html lang="pt-br">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mano Brownie — Cardápio Profissional</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Mano Brownie — Cardápio Mobile</title>
   <meta name="description" content="Brownies caseiros, fresquinhos e saborosos. Peça pelo WhatsApp: (47) 8860-0960" />
-  <!-- Open Graph (melhora compartilhamento) -->
-  <meta property="og:title" content="Mano Brownie — Cardápio" />
-  <meta property="og:description" content="Brownies caseiros, fresquinhos. Peça pelo WhatsApp: (47) 8860-0960" />
-  <meta property="og:image" content="https://i.pinimg.com/1200x/9e/0b/24/9e0b2462553da257c546836890fd05f4.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#0b1226;          /* fundo escuro profissional */
-      --card:#0f1724;        /* painel */
-      --muted:#98a0b3;       /* texto secundário */
-      --text:#eef2ff;        /* texto principal */
-      --accent:#ede020;      /* azul principal */
-      --accent-2:#f1f096;    /* azul claro */
-      --choco:#5a3a2b;       /* tom chocolate */
+    :root {
+      --bg:#0b1226;
+      --card:#0f1724;
+      --muted:#98a0b3;
+      --text:#eef2ff;
+      --accent:#ede020;   /* amarelo */
+      --accent-2:#f1f096; /* amarelo claro */
+      --choco:#5a3a2b;
       --radius:14px;
-      --shadow: 0 8px 30px rgba(2,6,23,0.6);
-      --glass: rgba(255,255,255,0.03);
+      --shadow:0 6px 20px rgba(2,6,23,0.5);
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0; font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background:linear-gradient(180deg,var(--bg),#071025); color:var(--text); -webkit-font-smoothing:antialiased}
-    .wrap{max-width:980px; margin:18px auto; padding:16px}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:"Inter",sans-serif;
+      background:linear-gradient(180deg,var(--bg),#071025);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      line-height:1.5;
+    }
 
-    header{display:flex; align-items:center; justify-content:space-between; gap:12px}
-    .brand{display:flex; gap:12px; align-items:center}
-    .logo{width:64px; height:64px; border-radius:12px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); display:grid; place-items:center; box-shadow:var(--shadow)}
-    .logo strong{color:#021230}
-    h1{font-size:20px; margin:0}
-    .subtitle{color:var(--muted); font-size:13px; margin-top:2px}
+    .wrap { max-width:640px; margin:0 auto; padding:14px; }
 
-    /* CTA */
-    .ctas{display:flex; gap:10px; align-items:center}
-    .btn{padding:10px 14px; border-radius:10px; border:0; cursor:pointer; font-weight:700}
-    .btn.whats{background:#f1ff6f; color:#04230b}
-    .btn.secondary{background:transparent; color:var(--text); border:1px solid rgba(255,255,255,0.06)}
+    /* Header */
+    header { display:flex; flex-direction:column; align-items:center; gap:10px; text-align:center; margin-bottom:12px; }
+    .logo { width:72px; height:72px; border-radius:16px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); display:grid; place-items:center; font-weight:800; font-size:20px; color:#111; box-shadow:var(--shadow); }
+    h1 { font-size:22px; }
+    .subtitle { color:var(--muted); font-size:13px; }
+
+    /* CTAs */
+    .ctas { display:flex; flex-direction:column; gap:10px; width:100%; margin-top:6px; }
+    .btn { display:block; width:100%; padding:12px; border-radius:10px; font-weight:700; font-size:15px; text-decoration:none; text-align:center; border:0; cursor:pointer; }
+    .btn.whats { background:var(--accent); color:#111; }
+    .btn.secondary { background:transparent; color:var(--text); border:1px solid rgba(255,255,255,0.08); }
 
     /* Hero */
-    .hero{display:grid; grid-template-columns:1fr; gap:14px; margin-top:14px}
-    .card{background:var(--card); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow); border:1px solid rgba(255,255,255,0.03)}
-    .hero-grid{display:grid; grid-template-columns:1fr; gap:12px}
-    .hero h2{margin:0; font-size:18px}
-    .lead{color:var(--muted); font-size:13px}
-    .badges{display:flex; gap:8px; flex-wrap:wrap; margin-top:8px}
-    .badge{background:var(--glass); padding:6px 10px; border-radius:999px; color:var(--muted); font-weight:700; font-size:13px}
+    .hero { background:var(--card); border-radius:var(--radius); padding:14px; margin-bottom:12px; box-shadow:var(--shadow); }
+    .hero h2 { font-size:18px; margin-bottom:8px; }
+    .lead { color:var(--muted); font-size:14px; }
+    .badges { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0; }
+    .badge { background:rgba(255,255,255,0.03); padding:6px 10px; border-radius:20px; color:var(--muted); font-weight:700; font-size:13px; }
 
-    /* Menu */
-    .menu{display:grid; grid-template-columns:1fr; gap:12px; margin-top:14px}
-    .item{display:flex; gap:12px; align-items:stretch; padding:12px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03)}
-    .thumb{width:110px; height:80px; background-size:cover; background-position:center; border-radius:10px; flex-shrink:0}
-    .info{flex:1; display:flex; flex-direction:column; gap:6px}
-    .info h3{margin:0; font-size:16px}
-    .desc{color:var(--muted); font-size:13px; margin:0}
-    .meta{display:flex; gap:8px; align-items:center; margin-top:auto}
-    .price{font-weight:800; font-size:16px; color:var(--accent-2)}
-    .order{background:var(--accent); color:white; padding:8px 10px; border-radius:8px; text-decoration:none; font-weight:700}
+    .hero img { width:100%; height:180px; object-fit:cover; border-radius:10px; margin-top:10px; }
 
-    /* Footer */
-    footer{margin:18px 0; color:var(--muted); font-size:13px; text-align:center}
+    /* Menu (lista vertical mobile) */
+    .menu { display:grid; gap:12px; margin-top:10px; }
+    .item { background:var(--card); border-radius:12px; padding:10px; box-shadow:var(--shadow); border:1px solid rgba(255,255,255,0.03); display:flex; flex-direction:column; gap:8px; }
+    .thumb { width:100%; height:140px; background-size:cover; background-position:center; border-radius:10px; }
+    .info h3 { font-size:16px; margin-bottom:6px; }
+    .desc { color:var(--muted); font-size:13px; }
+    .meta { display:flex; justify-content:space-between; align-items:center; gap:8px; margin-top:8px; }
+    .price { font-weight:800; color:var(--accent-2); font-size:15px; }
+    .order { background:var(--accent); color:#111; padding:10px 12px; border-radius:10px; text-decoration:none; font-weight:700; display:inline-block; }
+
+    /* Info cards (encomendas/contato) */
+    .card { background:var(--card); border-radius:12px; padding:12px; box-shadow:var(--shadow); margin-top:12px; border:1px solid rgba(255,255,255,0.03); }
+    .card h3 { margin-bottom:8px; font-size:15px; }
+    .card p.lead { margin-bottom:8px; color:var(--muted); }
+
+    footer { text-align:center; margin:18px 0; color:var(--muted); font-size:13px; }
 
     /* Floating WhatsApp */
-    .wh-floating{position:fixed; right:18px; bottom:18px; z-index:999; display:grid}
-    .wh-floating a{display:inline-grid; place-items:center; width:56px; height:56px; border-radius:999px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:white; box-shadow:0 10px 30px rgba(36,99,240,0.25); text-decoration:none}
+    .wh-floating { position:fixed; right:14px; bottom:14px; z-index:999; }
+    .wh-floating a { display:grid; place-items:center; width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:#111; font-size:26px; text-decoration:none; box-shadow:var(--shadow); }
 
-    /* Responsive */
-    @media(min-width:700px){
-      .hero-grid{grid-template-columns:1fr 360px}
-      .menu{grid-template-columns:repeat(2, 1fr)}
+    /* small tweaks for slightly wider screens */
+    @media(min-width:720px){
+      .wrap{padding:20px}
+      .hero img{height:220px}
+      .thumb{height:160px}
+      header{flex-direction:row; justify-content:space-between; align-items:center; text-align:left}
+      .ctas{flex-direction:row; width:auto}
+      .btn{width:auto}
     }
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <div class="brand">
-        <div class="logo"><strong>MB</strong></div>
+      <div style="display:flex;gap:12px;align-items:center;">
+        <div class="logo">MB</div>
         <div>
           <h1>Mano Brownie</h1>
           <div class="subtitle">Brownies artesanais • Encomendas via WhatsApp</div>
         </div>
       </div>
 
-      <div class="ctas">
-        <a class="btn whats" href="https://wa.me/554788600960?text=Ol%C3%A1%2C%20quero%20fazer%20um%20pedido%20de%20brownies%20%F0%9F%8D%AB" target="_blank" rel="noopener">Pedir no WhatsApp</a>
-        <button class="btn secondary" id="shareBtn">Compartilhar</button>
+      <div class="ctas" style="width:100%;max-width:260px;">
+        <a class="btn whats" href="https://wa.me/554788600960?text=Ol%C3%A1%2C%20quero%20fazer%20um%20pedido%20de%20brownies%20%F0%9F%8D%AB" target="_blank" rel="noopener">📱 Pedir no WhatsApp</a>
+        <button class="btn secondary" id="shareBtn">🔗 Compartilhar</button>
       </div>
     </header>
 
     <main>
-      <section class="card hero">
-        <div class="hero-grid">
-          <div>
-            <h2>Brownies caseiros, fresquinhos e com ingredientes de qualidade</h2>
-            <p class="lead">Produzidos por encomenda. Prontos para retirada em pontos combinados. Peça pelo WhatsApp e combine entrega.</p>
-            <div class="badges">
-              <div class="badge">Unidade: <strong>R$ 5,00</strong></div>
-              <div class="badge">Combo 3 un.: <strong>R$ 12,00</strong></div>
-              <div class="badge">Caixa 12 un.: consulte</div>
+      <section class="hero">
+        <h2>Brownies caseiros, fresquinhos e com ingredientes de qualidade</h2>
+        <p class="lead">Produção por encomenda. Retirada em pontos combinados ou entrega local (consulte).</p>
+        <div class="badges">
+          <div class="badge">Unidade: <strong>R$ 5,00</strong></div>
+          <div class="badge">Combo 3 un.: <strong>R$ 12,00</strong></div>
+          <div class="badge">Caixa 12 un.: consulte</div>
+        </div>
+        <img src="https://i.pinimg.com/1200x/9e/0b/24/9e0b2462553da257c546836890fd05f4.jpg" alt="Brownie artesanal">
+      </section>
+
+      <section class="menu" id="menu">
+        <!-- Clássico -->
+        <div class="item">
+          <div class="thumb" style="background-image:url('https://i.pinimg.com/736x/5f/37/e3/5f37e30f101e0e96bb7a55cb9145fe98.jpg')" role="img" aria-label="Brownie Clássico"></div>
+          <div class="info">
+            <h3>Clássico</h3>
+            <p class="desc">Brownie de chocolate intenso, casquinha crocante e miolo úmido.</p>
+            <div class="meta">
+              <div class="price">R$ 5,00</div>
+              <a class="order" href="https://wa.me/554788600960?text=Quero%201%20brownie%20Cl%C3%A1ssico" target="_blank" rel="noopener">Pedir</a>
             </div>
-            <p style="margin-top:12px;color:var(--muted);font-size:13px">Tamanho: <strong>7cm x 6cm</strong> (aprox.). Peso por unidade: <strong>~85g</strong>.</p>
           </div>
-          <div style="display:flex;flex-direction:column;gap:10px;align-items:stretch;">
-            <img src="https://i.pinimg.com/1200x/9e/0b/24/9e0b2462553da257c546836890fd05f4.jpg" alt="Brownies Mano Brownie" style="width:100%;height:200px;object-fit:cover;border-radius:10px;">
-            <div style="display:flex;gap:8px;">
-              <a class="btn secondary" href="#menu">Ver sabores</a>
-              <a class="btn whats" href="https://wa.me/554788600960?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20as%20encomendas" target="_blank" rel="noopener">Fazer encomenda</a>
+        </div>
+
+        <!-- Doce de Leite -->
+        <div class="item">
+          <div class="thumb" style="background-image:url('https://i.pinimg.com/736x/37/0f/57/370f57eaf133b31db0eaa1cb17961dcb.jpg')" role="img" aria-label="Brownie Doce de Leite"></div>
+          <div class="info">
+            <h3>Doce de Leite</h3>
+            <p class="desc">Recheado com doce de leite cremoso — textura macia e sabor marcante.</p>
+            <div class="meta">
+              <div class="price">R$ 8,00</div>
+              <a class="order" href="https://wa.me/554788600960?text=Quero%201%20brownie%20de%20Doce%20de%20Leite" target="_blank" rel="noopener">Pedir</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Brigadeiro -->
+        <div class="item">
+          <div class="thumb" style="background-image:url('https://i.pinimg.com/1200x/10/a4/46/10a44647a1b20cfebd2b093d22669864.jpg')" role="img" aria-label="Brownie Brigadeiro"></div>
+          <div class="info">
+            <h3>Brigadeiro</h3>
+            <p class="desc">Cobertura de brigadeiro tradicional — clássico irresistível.</p>
+            <div class="meta">
+              <div class="price">R$ 10,00</div>
+              <a class="order" href="https://wa.me/554788600960?text=Quero%201%20brownie%20de%20Brigadeiro" target="_blank" rel="noopener">Pedir</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Brigadeiro Branco -->
+        <div class="item">
+          <div class="thumb" style="background-image:url('https://i.pinimg.com/1200x/75/f1/2f/75f12f63bbba8762f6794b252069e419.jpg')" role="img" aria-label="Brownie Brigadeiro Branco"></div>
+          <div class="info">
+            <h3>Brigadeiro Branco</h3>
+            <p class="desc">Cobertura de brigadeiro branco — suave e cremoso, combina com chocolate intenso.</p>
+            <div class="meta">
+              <div class="price">R$ 10,00</div>
+              <a class="order" href="https://wa.me/554788600960?text=Quero%201%20brownie%20de%20Brigadeiro%20Branco" target="_blank" rel="noopener">Pedir</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Brigadeiro Branco com Oreo -->
+        <div class="item">
+          <div class="thumb" style="background-image:url('https://i.pinimg.com/1200x/1f/2a/6c/1f2a6c029d36482242ae3343ea61a54e.jpg')" role="img" aria-label="Brownie Brigadeiro Branco com Oreo"></div>
+          <div class="info">
+            <h3>Brigadeiro Branco com Oreo</h3>
+            <p class="desc">Cobertura de brigadeiro branco com pedaços crocantes de Oreo — textura e contraste.</p>
+            <div class="meta">
+              <div class="price">R$ 10,00</div>
+              <a class="order" href="https://wa.me/554788600960?text=Quero%201%20brownie%20de%20Brigadeiro%20Branco%20com%20Oreo" target="_blank" rel="noopener">Pedir</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Maracujá -->
+        <div class="item">
+          <div class="thumb" style="background-image:url('https://i.pinimg.com/1200x/09/ba/01/09ba01e0a23833d6ed27d27991bfedb2.jpg')" role="img" aria-label="Brownie Maracujá"></div>
+          <div class="info">
+            <h3>Maracujá</h3>
+            <p class="desc">Cobertura de creme de maracujá com toque cítrico — refrescante e sabor único.</p>
+            <div class="meta">
+              <div class="price">R$ 12,00</div>
+              <a class="order" href="https://wa.me/554788600960?text=Quero%201%20brownie%20de%20Maracuj%C3%A1" target="_blank" rel="noopener">Pedir</a>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="menu" style="margin-top:14px">
-        <div class="menu">
-          <!-- Clássico -->
-          <div class="item card">
-            <div class="thumb" style="background-image:url('https://i.pinimg.com/736x/5f/37/e3/5f37e30f101e0e96bb7a55cb9145fe98.jpg')" aria-hidden="true"></div>
-            <div class="info">
-              <h3>Clássico</h3>
-              <p class="desc">Brownie de chocolate intenso, casquinha crocante e miolo úmido.</p>
-              <div class="meta">
-                <div class="price">R$ 5,00</div>
-                <a class="order" href="https://wa.me/554788600960?text=Quero%201%20brownie%20Cl%C3%A1ssico" target="_blank" rel="noopener">Pedir</a>
-              </div>
-            </div>
-          </div>
-
-          
-          <!-- Doce de Leite -->
-          <div class="item card">
-            <div class="thumb" style="background-image:url('https://i.pinimg.com/736x/37/0f/57/370f57eaf133b31db0eaa1cb17961dcb.jpg')" aria-hidden="true"></div>
-            <div class="info">
-              <h3>Doce de Leite</h3>
-              <p class="desc">Recheado com doce de leite cremoso — textura macia e sabor marcante.</p>
-              <div class="meta">
-                <div class="price">R$ 8,00</div>
-                <a class="order" href="https://wa.me/554788600960?text=Quero%201%20brownie%20de%20Doce%20de%20Leite" target="_blank" rel="noopener">Pedir</a>
-              </div>
-            </div>
-          </div>
-
-
-          <!-- Brigadeiro -->
-          <div class="item card">
-            <div class="thumb" style="background-image:url('https://i.pinimg.com/1200x/10/a4/46/10a44647a1b20cfebd2b093d22669864.jpg')" aria-hidden="true"></div>
-            <div class="info">
-              <h3>Brigadeiro</h3>
-              <p class="desc">Cobertura de brigadeiro tradicional — clássico irresistível.</p>
-              <div class="meta">
-                <div class="price">R$ 10,00</div>
-                <a class="order" href="https://wa.me/554788600960?text=Quero%201%20brownie%20de%20Brigadeiro" target="_blank" rel="noopener">Pedir</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Brigadeiro Branco -->
-          <div class="item card">
-            <div class="thumb" style="background-image:url('https://i.pinimg.com/1200x/75/f1/2f/75f12f63bbba8762f6794b252069e419.jpg')" aria-hidden="true"></div>
-            <div class="info">
-              <h3>Brigadeiro Branco</h3>
-              <p class="desc">Cobertura de brigadeiro branco — suave e cremoso, combina com chocolate intenso.</p>
-              <div class="meta">
-                <div class="price">R$ 10,00</div>
-                <a class="order" href="https://wa.me/554788600960?text=Quero%201%20brownie%20de%20Brigadeiro%20Branco" target="_blank" rel="noopener">Pedir</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Brigadeiro Branco com Oreo -->
-          <div class="item card">
-            <div class="thumb" style="background-image:url('https://i.pinimg.com/1200x/1f/2a/6c/1f2a6c029d36482242ae3343ea61a54e.jpg')" aria-hidden="true"></div>
-            <div class="info">
-              <h3>Brigadeiro Branco com Oreo</h3>
-              <p class="desc">Cobertura de brigadeiro branco com pedaços crocantes de Oreo — textura e contraste.</p>
-              <div class="meta">
-                <div class="price">R$ 10,00</div>
-                <a class="order" href="https://wa.me/554788600960?text=Quero%201%20brownie%20de%20Brigadeiro%20Branco%20com%20Oreo" target="_blank" rel="noopener">Pedir</a>
-              </div>
-            </div>
-          </div>
-
- <div class="item card">
-      <div class="thumb" style="background-image:url('https://i.pinimg.com/1200x/09/ba/01/09ba01e0a23833d6ed27d27991bfedb2.jpg')" aria-hidden="true"></div>
-      <div class="info">
-        <h3>Maracujá</h3>
-        <p class="desc">Cobertura de creme de maracujá com toque cítrico — refrescante e sabor único.</p>
-        <div class="meta">
-          <div class="price">R$ 12,00</div>
-          <a class="order" href="https://wa.me/554788600960?text=Quero%201%20brownie%20de%20Maracuj%C3%A1" target="_blank" rel="noopener">Pedir</a>
-        </div>
-      </div>
-    </div>
-        </div>
-        
-      </section>
-
-      <section style="margin-top:14px" class="card">
-        <h3 style="margin:0 0 8px">Encomendas & Combos</h3>
-        <p class="lead" style="margin:0 0 8px">Aceitamos encomendas para eventos e combos especiais. Consulte prazo de produção.</p>
-        <ul style="color:var(--muted); font-size:13px; margin-top:6px">
+      <section class="card" aria-labelledby="encomendas">
+        <h3 id="encomendas">Encomendas & Combos</h3>
+        <p class="lead">Aceitamos encomendas para eventos e combos especiais. Consulte prazo de produção.</p>
+        <ul style="color:var(--muted); font-size:13px; margin-top:6px; padding-left:18px;">
           <li>Combo 3 un.: R$ 12,00</li>
           <li>Caixa 12 un.: preço sob consulta</li>
           <li>Personalização para festas (pré-encomenda)</li>
         </ul>
       </section>
 
-      <section style="margin-top:12px; display:grid; gap:8px">
-        <div class="card">
-          <h3 style="margin:0 0 6px">Contato & Entrega</h3>
-          <p class="lead" style="margin:0 0 6px">Atendo no bairro e entrego em pontos combinados. Pedido mínimo para entrega: 6 unidades.</p>
-          <p style="margin:0;color:var(--muted);font-size:13px">WhatsApp: <strong>(47) 8860-0960</strong></p>
-        </div>
-
-        <div class="card">
-          <h3 style="margin:0 0 6px">Pagamento</h3>
-          <p class="lead" style="margin:0 0 6px">Aceito pagamento em dinheiro, transferência ou PIX. Combine no pedido.</p>
-          <p style="margin:0;color:var(--muted);font-size:13px">PIX: disponível mediante contato.</p>
-        </div>
+      <section class="card" aria-labelledby="contato">
+        <h3 id="contato">Contato & Entrega</h3>
+        <p class="lead">Atendo no bairro e entrego em pontos combinados. Pedido mínimo para entrega: 6 unidades.</p>
+        <p style="margin:0;color:var(--muted);font-size:13px">WhatsApp: <strong>(47) 8860-0960</strong></p>
       </section>
 
+      <section class="card" aria-labelledby="pagamento" style="margin-bottom:18px">
+        <h3 id="pagamento">Pagamento</h3>
+        <p class="lead">Aceito pagamento em dinheiro, transferência ou PIX. Combine no pedido.</p>
+        <p style="margin:0;color:var(--muted);font-size:13px">PIX: disponível mediante contato.</p>
+      </section>
     </main>
 
     <footer>
@@ -233,27 +222,24 @@
     </footer>
   </div>
 
-  <!-- Botão flutuante WhatsApp -->
   <div class="wh-floating">
-    <a href="https://wa.me/554788600960?text=Ol%C3%A1%2C%20quero%20fazer%20um%20pedido" target="_blank" rel="noopener" aria-label="Pedir no WhatsApp">📱</a>
+    <a href="https://wa.me/554788600960?text=Ol%C3%A1,%20gostaria%20de%20fazer%20um%20pedido" target="_blank" rel="noopener">💬</a>
   </div>
 
   <script>
-    // atualiza ano no rodapé
+    // atualiza ano e funcionalidade de compartilhar (com fallback)
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // compartilhar
     const shareBtn = document.getElementById('shareBtn');
-    shareBtn?.addEventListener('click', async () => {
-      const shareData = { title: 'Mano Brownie — Cardápio', text: 'Peça brownie's fresquinhos pelo WhatsApp! (47) 8860-0960', url: location.href };
-      if (navigator.share) {
-        try { await navigator.share(shareData); } catch(e) {}
-      } else {
-        await navigator.clipboard.writeText(location.href);
-        shareBtn.textContent = 'Link copiado!';
-        setTimeout(()=>shareBtn.textContent='Compartilhar',1400);
-      }
-    });
+    if (shareBtn) {
+      shareBtn.addEventListener('click', async () => {
+        const data = { title:"Mano Brownie", text:"Brownies artesanais deliciosos 😋", url:location.href };
+        if (navigator.share) {
+          try { await navigator.share(data); } catch(e) { /* ignorar */ }
+        } else {
+          try { await navigator.clipboard.writeText(location.href); shareBtn.textContent = "✔ Copiado!"; setTimeout(()=>shareBtn.textContent = "🔗 Compartilhar",1200); } catch(e) {}
+        }
+      });
+    }
   </script>
 </body>
 </html>
